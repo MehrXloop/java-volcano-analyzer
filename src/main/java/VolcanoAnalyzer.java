@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,4 +40,14 @@ public class VolcanoAnalyzer {
                 .collect(Collectors.toList());
     }
 
+    // Test 2: Return an array of the names of volcanoes that had an eruption with a
+    // Volcanic Explosivity Index (VEI) of 6 or higher.
+
+    public String[] highVEI() {
+        return volcanos.stream()
+                .filter(v -> v.getVEI() >= 6)
+                .map(v -> v.getName())
+                .collect(Collectors.toList())
+                .toArray(new String[0]);
+    }
 }
