@@ -89,4 +89,10 @@ public class VolcanoAnalyzer {
         .collect(Collectors.toList())
         .size();
     }
+
+    //Test 7: Return the average elevation of all eruptions.
+
+    public double averageElevation(){
+        return volcanos.stream().mapToDouble(v -> v.getElevation()).sum() / volcanos.size();
+    }
 }
