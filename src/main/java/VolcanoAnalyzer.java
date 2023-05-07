@@ -70,7 +70,7 @@ public class VolcanoAnalyzer {
                 .count() * 100 / volcanos.size();
     }
 
-    //Test 5:Return the most common type of volcano in the set.
+    // Test 5:Return the most common type of volcano in the set.
 
     public String mostCommonType() {
         return volcanos.stream()
@@ -81,18 +81,28 @@ public class VolcanoAnalyzer {
                 .orElse(null);
     }
 
-    //Test 6: Return the number of eruptions when supplied a country as an argument.
+    // Test 6: Return the number of eruptions when supplied a country as an
+    // argument.
 
-    public Integer eruptionsByCountry(String country){
+    public Integer eruptionsByCountry(String country) {
         return volcanos.stream()
-        .filter(v -> v.getCountry().equals(country))
-        .collect(Collectors.toList())
-        .size();
+                .filter(v -> v.getCountry().equals(country))
+                .collect(Collectors.toList())
+                .size();
     }
 
-    //Test 7: Return the average elevation of all eruptions.
+    // Test 7: Return the average elevation of all eruptions.
 
-    public double averageElevation(){
+    public double averageElevation() {
         return volcanos.stream().mapToDouble(v -> v.getElevation()).sum() / volcanos.size();
+    }
+
+    // Test 8:Return an array of types of volcanoes.
+    public String[] volcanoTypes() {
+        return volcanos.stream()
+                .map(v -> v.getType())
+                .distinct()
+                .collect(Collectors.toList())
+                .toArray(new String[0]);
     }
 }
