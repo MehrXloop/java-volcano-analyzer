@@ -97,7 +97,7 @@ public class VolcanoAnalyzerTests {
         Volcano actual = va.mostDeadly();
 
         //Assert
-        assertEquals( expected.getYear(), actual.getYear(), "should have correct year",);
+        assertEquals( expected.getYear(), actual.getYear(), "should have correct year");
         assertEquals( expected.getTsu(), actual.getTsu(), "should have correct Tsu");
         assertEquals(expected.getEQ(), actual.getEQ(), "should have correct EQ" );
         assertEquals( expected.getName(), actual.getName(),"should have correct Name" );
