@@ -114,4 +114,17 @@ public class VolcanoAnalyzer {
         .count() *100d / volcanos.size();
     }
 
+    //Test 10: Return the names of eruptions that occurred after 1800, that did NOT cause a tsunami, happened in the Southern Hemisphere, and had a VEI of 5.
+
+    public String[] manyFilters(){
+        return volcanos.stream()
+        .filter(v -> v.getYear() > 1800)
+        .filter(v -> v.getTsu().equals(""))
+        .filter(v->v.getLatitude() < 0)
+        .filter(v -> v.getVEI() == 5)
+        .map(v -> v.getName())
+        .collect(Collectors.toList())
+        .toArray(new String[0]);
+    }
+
 }
