@@ -105,4 +105,13 @@ public class VolcanoAnalyzer {
                 .collect(Collectors.toList())
                 .toArray(new String[0]);
     }
+
+    //Test 9:Return the percentage of eruptions that occurred in the Northern Hemisphere.
+    
+    public double percentNorth(){
+        return volcanos.stream()
+        .filter(v -> v.getLatitude() > 0)
+        .count() *100d / volcanos.size();
+    }
+
 }
