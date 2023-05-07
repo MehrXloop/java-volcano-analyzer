@@ -81,5 +81,12 @@ public class VolcanoAnalyzer {
                 .orElse(null);
     }
 
-    
+    //Test 6: Return the number of eruptions when supplied a country as an argument.
+
+    public Integer eruptionsByCountry(String country){
+        return volcanos.stream()
+        .filter(v -> v.getCountry().equals(country))
+        .collect(Collectors.toList())
+        .size();
+    }
 }
