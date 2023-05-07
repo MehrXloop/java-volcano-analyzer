@@ -3,6 +3,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -137,4 +138,17 @@ public class VolcanoAnalyzer {
         .toArray(new String[0]);
     }
 
+    //Test 12:Return the agents of death for the ten most deadly eruptions.
+    public String[] topAgentsOfDeath(){
+        return volcanos.stream()
+        .filter(v -> !v.getDEATHS().isEmpty())
+        .sorted((i,j)->Integer.parseInt(j.getDEATHS())-Integer.parseInt(i.getDEATHS()))
+        .limit(10)
+        .filter(v -> !v.getAgent().isEmpty())
+        .map(v -> Arrays.asList(v.getAgent().split(",")))
+        .flatMap(List::stream)
+        .distinct()
+        .collect(Collectors.toList())
+        .toArray(new String[0]);
+    }
 }
