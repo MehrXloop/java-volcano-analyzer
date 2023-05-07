@@ -127,4 +127,14 @@ public class VolcanoAnalyzer {
         .toArray(new String[0]);
     }
 
+    //Test 11:Return the names of eruptions that occurred at or above an elevation passed in as an argument.
+
+    public String[] elevatedVolcanoes(int n){
+        return volcanos.stream()
+        .filter(v -> v.getElevation() >= n)
+        .map(v -> v.getName())
+        .collect(Collectors.toList())
+        .toArray(new String[0]);
+    }
+
 }
