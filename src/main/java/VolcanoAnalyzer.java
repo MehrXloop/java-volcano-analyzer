@@ -65,8 +65,7 @@ public class VolcanoAnalyzer {
 
     public double causedTsunami() {
         return volcanos.stream()
-                .filter(v -> v.getTsu()
-                .equals("tsu"))
+                .filter(v -> v.getTsu().equals("tsu"))
                 .count() * 100 / volcanos.size();
     }
 }
