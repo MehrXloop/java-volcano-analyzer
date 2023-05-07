@@ -61,5 +61,12 @@ public class VolcanoAnalyzer {
         return result.orElse(null);
     }
 
-   
+    // Test 4:Return the percentage of eruptions that caused tsunamis.
+
+    public double causedTsunami() {
+        return volcanos.stream()
+                .filter(v -> v.getTsu()
+                .equals("tsu"))
+                .count() * 100 / volcanos.size();
+    }
 }
