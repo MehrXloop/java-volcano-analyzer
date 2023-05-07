@@ -68,4 +68,6 @@ public class VolcanoAnalyzer {
                 .filter(v -> v.getTsu().equals("tsu"))
                 .count() * 100 / volcanos.size();
     }
+
+    //
 }
