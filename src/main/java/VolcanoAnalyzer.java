@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -69,5 +70,14 @@ public class VolcanoAnalyzer {
                 .count() * 100 / volcanos.size();
     }
 
-    //
+    //Test 5:Return the most common type of volcano in the set.
+
+    public String mostCommonType() {
+        return volcanos.stream()
+                .collect(Collectors.groupingBy(Volcano::getType, Collectors.counting()))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse(null);
+    }
 }
